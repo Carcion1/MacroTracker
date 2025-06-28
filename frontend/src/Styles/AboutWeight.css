@@ -1,0 +1,25 @@
+.AboutWeight img {
+    display:flex;
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.AboutWeightWrapper{
+    display:flex;
+    justify-content:left;
+    margin-left: 25px;
+}
+
+.ShapeContainerWeight{
+display:flex;
+justify-content: flex-end;
+box-sizing: border-box;
+background-color: #ff70ff;
+margin-right: 285px;
+}
+
+
+
