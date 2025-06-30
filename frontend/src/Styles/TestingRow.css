@@ -46,6 +46,7 @@
 .TestingWrapper {
   display: flex;
   justify-content: center; /* Pushes entire TestingRow to the right */
+  scroll-behavior: smooth;
 }
 
 .details h4 {

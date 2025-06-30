@@ -6,13 +6,13 @@ type Props = {};
 
 export const TestingRow = () => {
   return (
-    <div className="TestingWrapper">
+    <div className="TestingWrapper" id="services">
       <div className="TestingRow">
         <div className="ShapeContainerMacro shape-container">
           <div className="AboutMacros img-size">
             <div className="details">
               <h2>Macro Tracking</h2>
-              <h4>Daily & weekly tracking of your macro/micronutrients.</h4>
+              <h4>Daily & weekly tracking of your macronutrients.</h4>
             </div>
             <img
               src="https://redefiningstrength.com/wp-content/uploads/2017/10/Fotolia_110518491_Subscription_Monthly_M.jpg"

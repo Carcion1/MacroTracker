@@ -1,27 +1,27 @@
-.ImageAuthor{
-    height: auto;
-    width: auto;
-    border-radius: 50%;
-    object-fit:cover;
-    object-position: center;
+.ImageAuthor {
+  height: auto;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 
-
 .AboutDetails {
-    max-width: 700px;
-    word-wrap: break-word;
-    line-height: 1.6;
+  max-width: 700px;
+  word-wrap: break-word;
+  line-height: 1.6;
 }
 
 .AboutComponent {
-    display:flex;
-    align-items: flex-start;
-    gap: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .AboutWrapper {
-    display:flex;
-    justify-content:center;
-    margin-top: 60px;
-    margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+  margin-left: 15px;
+  scroll-behavior: smooth;
 }
