@@ -1,51 +1,57 @@
 .TestingRow {
   display: flex;
   justify-content: flex-start;
-  gap: 120px; /* space between macro and weight blocks */
-  padding: 40px;
+  gap: 2em 2em; /* space between macro and weight blocks */
+  padding: 3em;
+  margin-left: 15em;
   flex-wrap: wrap; /* allows them to stack if the screen gets tight */
 }
 
-.ShapeContainerMacro,
-.ShapeContainerWeight {
-  width: 400px; /* or play with exact widths like 300px, etc. */
+.shape-container {
+  /* width: 400px; or play with exact widths like 300px, etc. */
   box-sizing: border-box;
-  margin-top: 50px;
   border-radius: 30px;
   height: 360px;
+  min-width: 41%;
 }
 
-.AboutMacros img,
-.AboutWeight img {
-    height: 200px;
-    width: auto;
-    display:flex;
-    border-radius: 50%;
-    display: block;         /* ensures it's treated like a block element */
-  margin: 0 auto; 
+.img-size img {
+  height: 200px;
+  width: auto;
+  display: flex;
+  border-radius: 50%;
+  display: block; /* ensures it's treated like a block element */
+  margin: 0 auto;
 }
-
-.AboutWeight img{
-margin-top: 20px;
-}
-
 
 .details {
   display: flex;
   flex-direction: column;
-  align-items: center;      /* ⬅️ this centers image & text horizontally */
-  text-align: center;       /* ⬅️ optional: center-aligns the text itself */
+  align-items: center; /* ⬅️ this centers image & text horizontally */
+  text-align: center; /* ⬅️ optional: center-aligns the text itself */
 }
 
-.ShapeContainerMacro{
-    background-color: #f0f4f8;
+.ShapeContainerMacro {
+  background-color: #f0f4f8;
 }
 
-.ShapeContainerWeight{
-    background-color: #ff70ff;
+.ShapeContainerWeight {
+  background-color: #ff70ff;
+}
+
+.ShapeContainerLift {
+  background-color: blue;
 }
 
 .TestingWrapper {
   display: flex;
   justify-content: center; /* Pushes entire TestingRow to the right */
+}
+
+.details h4 {
+  max-width: 90%;
+}
+
+.AboutWeight img {
+  max-width: 90%;
 }
