@@ -10,8 +10,6 @@
 
         public required string Password { get; set; }
 
-        public DateTime UpdatedOn { get; set; }
-
         public string? Phone { get; set; }
     }
 }

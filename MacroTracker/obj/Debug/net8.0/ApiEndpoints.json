@@ -34,7 +34,7 @@
     "Parameters": [
       {
         "Name": "addUserDto",
-        "Type": "MacroTracker.Models.AddUserDto",
+        "Type": "MacroTracker.DTO.AddUserDto",
         "IsRequired": true
       }
     ],
@@ -101,7 +101,7 @@
       },
       {
         "Name": "updateUserDto",
-        "Type": "MacroTracker.Models.UpdateUserDto",
+        "Type": "MacroTracker.DTO.UpdateUserDto",
         "IsRequired": true
       }
     ],

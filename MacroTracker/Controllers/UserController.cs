@@ -46,10 +46,12 @@ namespace MacroTracker.Controllers
                 Name = addUserDto.Name,
                 Phone = addUserDto.Phone,
                 Password = addUserDto.Password,
-                CreatedOn = addUserDto.CreatedOn
+                CreatedOn = DateTime.UtcNow
             };
             dbContext.Users.Add(userEntity);
             await dbContext.SaveChangesAsync(); // save changes because we are adding e.g
+
+            // services code above.
 
             return CreatedAtAction(nameof(GetUserById), new { id = userEntity.Id }, new
             {
@@ -87,6 +89,10 @@ namespace MacroTracker.Controllers
         public async Task <IActionResult> UpdateUser(Guid id, UpdateUserDto updateUserDto)
         {
             var user = await dbContext.Users.FindAsync(id); // finding user by id.
+            // so instead of dbcontext.users.findasync(id)
+            // var user = await UserService.UpdateUser
+            // For controllers, everything HTTP request should be left here.
+            //Services should contain the business logic which is then referenced by the controller
             if (user is null)
             {
                 return NotFound("User id has not been found."); // returns a 404 error.
@@ -97,7 +103,7 @@ namespace MacroTracker.Controllers
                 user.Email = updateUserDto.Email;
                 user.Phone = updateUserDto.Phone;
                 user.Password = updateUserDto.Password;
-                user.UpdatedOn = updateUserDto.UpdatedOn;
+                user.UpdatedOn = DateTime.UtcNow;
 
                 await dbContext.SaveChangesAsync();
                 return Ok(new

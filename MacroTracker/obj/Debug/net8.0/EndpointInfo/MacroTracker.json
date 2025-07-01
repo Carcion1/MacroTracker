@@ -216,7 +216,8 @@
       "AddUserDto": {
         "required": [
           "email",
-          "name"
+          "name",
+          "password"
         ],
         "type": "object",
         "properties": {
@@ -229,6 +230,10 @@
             "nullable": true
           },
           "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           },
@@ -269,7 +274,8 @@
       "UpdateUserDto": {
         "required": [
           "email",
-          "name"
+          "name",
+          "password"
         ],
         "type": "object",
         "properties": {
@@ -282,6 +288,10 @@
             "nullable": true
           },
           "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           },

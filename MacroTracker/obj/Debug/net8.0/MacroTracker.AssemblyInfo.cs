@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MacroTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b4b33ddf78146061904fd6d05b066cfe1a48184")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22c2ee227a8f9e1dec2a9aaebede3b6511b06b29")]
 [assembly: System.Reflection.AssemblyProductAttribute("MacroTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MacroTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
