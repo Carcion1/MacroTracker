@@ -1,5 +1,5 @@
 ﻿using MacroTracker.Data;
-using MacroTracker.Models;
+using MacroTracker.DTO;
 using MacroTracker.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +44,9 @@ namespace MacroTracker.Controllers
             {
                 Email = addUserDto.Email,
                 Name = addUserDto.Name,
-                Phone = addUserDto.Phone
+                Phone = addUserDto.Phone,
+                Password = addUserDto.Password,
+                CreatedOn = addUserDto.CreatedOn
             };
             dbContext.Users.Add(userEntity);
             await dbContext.SaveChangesAsync(); // save changes because we are adding e.g
@@ -94,6 +96,8 @@ namespace MacroTracker.Controllers
                 user.Name = updateUserDto.Name;
                 user.Email = updateUserDto.Email;
                 user.Phone = updateUserDto.Phone;
+                user.Password = updateUserDto.Password;
+                user.UpdatedOn = updateUserDto.UpdatedOn;
 
                 await dbContext.SaveChangesAsync();
                 return Ok(new
