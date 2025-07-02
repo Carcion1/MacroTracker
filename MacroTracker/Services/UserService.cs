@@ -43,6 +43,31 @@ namespace MacroTracker.Services
         {
             return await dbContext.Users.ToListAsync();
         }
+
+        public async Task<User> DeleteUserByIdAsync(Guid id)
+        {
+            var user = await dbContext.Users.FindAsync(id);
+
+            dbContext.Users.Remove(user);
+            await dbContext.SaveChangesAsync();
+
+            return user;
+        }
+        public async Task<User> AddUserAsync(AddUserDto addUserDto)
+        {
+            var userEntity = new User()
+            {
+                Email = addUserDto.Email,
+                Name = addUserDto.Name,
+                Phone = addUserDto.Phone,
+                Password = addUserDto.Password,
+                CreatedOn = DateTime.UtcNow
+            };
+            dbContext.Users.Add(userEntity);
+            await dbContext.SaveChangesAsync();
+
+            return userEntity;
+        }
     }
 
 }

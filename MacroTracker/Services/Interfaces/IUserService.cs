@@ -8,5 +8,7 @@ namespace MacroTracker.Services.Interfaces
         Task<User> GetUserByIdAsync(Guid id);
         Task<User> UpdateUserByIdAsync(Guid id, UpdateUserDto updateUserDto);
         Task<List<User>> GetAllUsersAsync();
+        Task<User> DeleteUserByIdAsync(Guid id);
+        Task<User> AddUserAsync(AddUserDto addUserDto);
     }
 }

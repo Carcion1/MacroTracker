@@ -40,18 +40,10 @@ namespace MacroTracker.Controllers
         public async Task<IActionResult> AddUser(AddUserDto addUserDto)
         {
             // converting user dto to type of user entity
-            var userEntity = new User()
-            {
-                Email = addUserDto.Email,
-                Name = addUserDto.Name,
-                Phone = addUserDto.Phone,
-                Password = addUserDto.Password,
-                CreatedOn = DateTime.UtcNow
-            };
-            dbContext.Users.Add(userEntity);
-            await dbContext.SaveChangesAsync(); // save changes because we are adding e.g
+            // save changes because we are adding e.g
 
             // services code above.
+            var userEntity = await _userService.AddUserAsync(addUserDto);
 
             return CreatedAtAction(nameof(GetUserById), new { id = userEntity.Id }, new
             {
@@ -66,7 +58,7 @@ namespace MacroTracker.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]// google what route means
         // getting user id will output a success, (200 & 404 not found) 
-        public async Task<IActionResult> GetUserByIdAsync(Guid id) // make sure parameter matches route.
+        public async Task<IActionResult> GetUserById(Guid id) // make sure parameter matches route.
         {
             var user = await _userService.GetUserByIdAsync(id);
             // FindAsync more efficient because it checks if entity is tracked in memory. Designed for primary key look ups.
@@ -113,7 +105,7 @@ namespace MacroTracker.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
-            var user = await dbContext.Users.FindAsync(id);
+            var user = await _userService.DeleteUserByIdAsync(id);
 
             if (user is null)
             {
@@ -121,9 +113,6 @@ namespace MacroTracker.Controllers
             }
             else
             {
-               dbContext.Users.Remove(user);
-               await dbContext.SaveChangesAsync();
-
                return NoContent();
                 // check response code for delete.
             }
