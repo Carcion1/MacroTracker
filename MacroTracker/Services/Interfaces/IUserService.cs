@@ -1,6 +1,12 @@
-﻿namespace MacroTracker.Services.Interfaces
+﻿using MacroTracker.DTO;
+using MacroTracker.Models.Entities;
+
+namespace MacroTracker.Services.Interfaces
 {
-    public class IUserService
+    public interface IUserService
     {
+        Task<User> GetUserByIdAsync(Guid id);
+        Task<User> UpdateUserByIdAsync(Guid id, UpdateUserDto updateUserDto);
+        Task<List<User>> GetAllUsersAsync();
     }
 }

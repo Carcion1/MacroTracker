@@ -1,6 +1,7 @@
 ﻿using MacroTracker.Data;
 using MacroTracker.DTO;
 using MacroTracker.Models.Entities;
+using MacroTracker.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +14,10 @@ namespace MacroTracker.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
-
-        public UserController(ApplicationDbContext dbContext)
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
         {
-            this.dbContext = dbContext;
+            _userService = userService;
         }
         // GETTING ALL USERS
         [HttpGet]
@@ -25,7 +25,7 @@ namespace MacroTracker.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllUsers()
         {
-           var allUsers =  await dbContext.Users.ToListAsync();
+            var allUsers = await _userService.GetAllUsersAsync();
 
             return Ok(new
             {
@@ -66,9 +66,9 @@ namespace MacroTracker.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]// google what route means
         // getting user id will output a success, (200 & 404 not found) 
-        public async Task<IActionResult> GetUserById(Guid id) // make sure parameter matches route.
+        public async Task<IActionResult> GetUserByIdAsync(Guid id) // make sure parameter matches route.
         {
-            var user = await dbContext.Users.FindAsync(id);
+            var user = await _userService.GetUserByIdAsync(id);
             // FindAsync more efficient because it checks if entity is tracked in memory. Designed for primary key look ups.
             if (user is null)
             {
@@ -88,7 +88,7 @@ namespace MacroTracker.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task <IActionResult> UpdateUser(Guid id, UpdateUserDto updateUserDto)
         {
-            var user = await dbContext.Users.FindAsync(id); // finding user by id.
+            var user = await _userService.UpdateUserByIdAsync(id, updateUserDto); // finding user by id.
             // so instead of dbcontext.users.findasync(id)
             // var user = await UserService.UpdateUser
             // For controllers, everything HTTP request should be left here.
@@ -99,13 +99,6 @@ namespace MacroTracker.Controllers
             }
             else
             {
-                user.Name = updateUserDto.Name;
-                user.Email = updateUserDto.Email;
-                user.Phone = updateUserDto.Phone;
-                user.Password = updateUserDto.Password;
-                user.UpdatedOn = DateTime.UtcNow;
-
-                await dbContext.SaveChangesAsync();
                 return Ok(new
                 {
                     message = "User updated successfully",
