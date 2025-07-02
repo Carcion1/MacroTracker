@@ -1,24 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import "../Styles/NavBar.css";
 
 const NavBar: React.FC = () => {
   return (
     <nav className="nav-bar">
       <div className="nav-left">
-        <a href="#logo" className="logo-link">
-          <span className="#about">Logo</span>
-        </a>
+        <span>Logo</span>
       </div>
       <ul className="nav-links">
         <li>
-          <a href="#about">About</a>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="about-link"
+          >
+            About
+          </ScrollLink>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <ScrollLink
+            to="services"
+            smooth={true}
+            duration={500}
+            className="service-link"
+          >
+            Services
+          </ScrollLink>
         </li>
         <li>
-          <a href="#services">Services</a>
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="contact-link"
+          >
+            Contact
+          </ScrollLink>
         </li>
       </ul>
 

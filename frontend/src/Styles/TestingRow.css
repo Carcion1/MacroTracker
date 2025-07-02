@@ -1,18 +1,19 @@
 .TestingRow {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 2em 2em; /* space between macro and weight blocks */
   padding: 3em;
-  margin-left: 15em;
+  /* margin-left: 15em; */
+  margin: auto;
   flex-wrap: wrap; /* allows them to stack if the screen gets tight */
 }
-
 .shape-container {
   /* width: 400px; or play with exact widths like 300px, etc. */
   box-sizing: border-box;
   border-radius: 30px;
   height: 360px;
-  min-width: 41%;
+  width: 410px;
+  /* min-width: 41%; */
 }
 
 .img-size img {
@@ -46,7 +47,6 @@
 .TestingWrapper {
   display: flex;
   justify-content: center; /* Pushes entire TestingRow to the right */
-  scroll-behavior: smooth;
 }
 
 .details h4 {

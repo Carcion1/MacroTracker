@@ -6,10 +6,12 @@ import NavBar from "./Components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Contact from "./Pages/Contact";
+import ContactPage from "./Pages/ContactPage";
 import AboutMacros from "./Components/AboutMacros";
 import AboutWeight from "./Components/AboutWeight";
 import TestingRow from "./Components/TestingRow";
+import ContactBar from "./Components/ContactBar";
+// import Login from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -19,13 +21,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {/* <Route path="/login" element={<Login />} /> */}
         </Routes>
       </div>
-      <AboutComponent></AboutComponent>
-      {/*<AboutMacros></AboutMacros>
-      <AboutWeight></AboutWeight>*/}
-      <TestingRow></TestingRow>
     </Router>
   );
 }

@@ -21,7 +21,6 @@
 .AboutWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 6em;
-  margin-left: 15px;
-  scroll-behavior: smooth;
+  margin-top: 3em;
+  margin-left: 40px;
 }
