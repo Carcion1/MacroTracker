@@ -1,10 +1,10 @@
 import React from "react";
+import "../Styles/LoginPage.css";
 
 const LoginPage: React.FC = () => {
   return (
-    <div>
-      <h1>Login Page</h1>
-      {/* Add your login form here */}
+    <div className="login-container">
+      <h2>Login</h2>
     </div>
   );
 };
