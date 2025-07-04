@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import "../Styles/NavBar.css";
 
 const NavBar: React.FC = () => {
+  const location = useLocation();
+  const isHidden = location.pathname === "/login";
+
   return (
-    <nav className="nav-bar">
+    <nav className={`nav-bar ${isHidden ? "hidden" : ""}`}>
+      {/*  (') - backticks: template literal - allows embedding of variables inside string. */}
       <div className="nav-left">
         <span>Logo</span>
       </div>
@@ -42,9 +46,10 @@ const NavBar: React.FC = () => {
           </ScrollLink>
         </li>
       </ul>
-
       <div className="nav-login">
-        <a href="/login">Login</a>
+        <Link to="/login" className="login-link">
+          Login
+        </Link>
       </div>
     </nav>
   );

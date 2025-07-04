@@ -1,7 +1,11 @@
 import React from "react";
 import "../Styles/ContactBar.css";
 
-const ContactBar = () => {
+// ✅ Define props type (even if empty for now)
+type ContactBarProps = {};
+
+// ✅ Use React.FC with the props type
+const ContactBar: React.FC = () => {
   return (
     <div className="contact-container">
       <div className="contact-bar" id="contact">

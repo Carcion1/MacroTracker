@@ -11,7 +11,7 @@ import AboutMacros from "./Components/AboutMacros";
 import AboutWeight from "./Components/AboutWeight";
 import TestingRow from "./Components/TestingRow";
 import ContactBar from "./Components/ContactBar";
-// import Login from "./Pages/LoginPage";
+import LoginPage from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
-          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
     </Router>

@@ -1,10 +1,11 @@
 import React from "react";
-
 import "../Styles/TestingRow.css";
 
+// ✅ Define props type (even if empty)
 type Props = {};
 
-export const TestingRow = () => {
+// ✅ Add props type to the component
+const TestingRow: React.FC = () => {
   return (
     <div className="TestingWrapper" id="services">
       <div className="TestingRow">

@@ -1,8 +1,11 @@
 import React from "react";
 import "../Styles/AboutComponent.css";
 
-type Props = {};
-export const AboutComponent = (props: Props) => {
+// ✅ Define props type (empty for now, but ready for future use)
+type AboutComponentProps = {};
+
+// ✅ Use React.FC with the props type
+const AboutComponent: React.FC = () => {
   return (
     <div className="AboutWrapper" id="about">
       <div className="AboutComponent">

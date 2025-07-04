@@ -3,7 +3,7 @@ import AboutComponent from "../Components/AboutComponent";
 import TestingRow from "../Components/TestingRow";
 import ContactBar from "../Components/ContactBar";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <>
       <AboutComponent />

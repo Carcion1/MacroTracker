@@ -62,3 +62,7 @@
 .nav-login a:hover {
   color: blue;
 }
+
+.hidden {
+  display: none;
+}
