@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "MacroTracker.Controllers.LoginController",
+    "Method": "GetUserByEmailAsync",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "MacroTracker.DTO.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MacroTracker.Controllers.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "api/User",

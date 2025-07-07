@@ -19,12 +19,12 @@ namespace MacroTracker.Controllers
         [HttpPost]
         public async Task<IActionResult> GetUserByEmailAsync([FromBody] LoginDto loginDto)
         {
-            var result = await _userService.GetUserByEmailAsync(loginDto.Email);
+            var result = await _userService.VerifyLogin(loginDto);
             if(result == null)
             {
                 return Unauthorized(new { message = "Invalid email or password" });
             }
-                 return Ok(new { message = "Login successful", user = result });
+                return Ok(new { message = "Login successful", user = result });
         }
     }
     }
