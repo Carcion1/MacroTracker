@@ -2,6 +2,7 @@
 using MacroTracker.DTO;
 using MacroTracker.Models.Entities;
 using MacroTracker.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,14 +17,14 @@ namespace MacroTracker.Services
         {
             this.dbContext = dbContext;
         }
-        public async Task<User> GetUserByIdAsync(Guid id)
+        public async Task<User?> GetUserByIdAsync(Guid id)
         {
             var user = await dbContext.Users.FindAsync(id);
 
             return user;
         }
 
-        public async Task<User> UpdateUserByIdAsync(Guid id, UpdateUserDto updateUserDto)
+        public async Task<User?> UpdateUserByIdAsync(Guid id, UpdateUserDto updateUserDto)
         {
             var user = await dbContext.Users.FindAsync(id);
             if (user == null)
@@ -44,7 +45,7 @@ namespace MacroTracker.Services
             return await dbContext.Users.ToListAsync();
         }
 
-        public async Task<User> DeleteUserByIdAsync(Guid id)
+        public async Task<User?> DeleteUserByIdAsync(Guid id)
         {
             var user = await dbContext.Users.FindAsync(id);
 
@@ -53,7 +54,7 @@ namespace MacroTracker.Services
 
             return user;
         }
-        public async Task<User> AddUserAsync(AddUserDto addUserDto)
+        public async Task<User?> AddUserAsync(AddUserDto addUserDto)
         {
             var userEntity = new User()
             {
@@ -67,6 +68,39 @@ namespace MacroTracker.Services
             await dbContext.SaveChangesAsync();
 
             return userEntity;
+        }
+
+        public async Task<User?> GetUserByEmailAsync (string email)
+        {
+            if (email == null)
+            {
+                return null;
+            }
+           var user = await dbContext.Users.
+                Where(u => u.Email == email)
+                .Select(u => new User
+                {
+                    Name = u.Name,
+                    Email = u.Email,
+                    Password = u.Password
+                })
+            .FirstOrDefaultAsync();
+            return user;
+        }
+
+        public async Task<User?> VerifyLogin(LoginDto loginDto)
+        {
+            var user = await GetUserByEmailAsync(loginDto.Email);
+                if(user == null)
+            {
+                return null;
+            } if (user.Password == loginDto.Password)
+            {
+                return user;
+            } else
+            {
+                return null;
+            }
         }
     }
 

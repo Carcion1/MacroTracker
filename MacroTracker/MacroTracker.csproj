@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Compile Remove="Models\Entities\UpdateUserDto.cs" />
+    <Compile Remove="Services\Interfaces\ILoginService.cs" />
+    <Compile Remove="Services\LoginService.cs" />
   </ItemGroup>
 
   <ItemGroup>
