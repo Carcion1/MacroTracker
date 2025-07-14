@@ -12,6 +12,7 @@ import AboutWeight from "./Components/AboutWeight";
 import TestingRow from "./Components/TestingRow";
 import ContactBar from "./Components/ContactBar";
 import LoginPage from "./Pages/LoginPage";
+import LoginHome from "./Pages/LoginHome";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/login-home" element={<LoginHome />} />
         </Routes>
       </div>
     </Router>

@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
         })
         .then((data) => {
           console.log(data); // data just a variable.
-          navigate("/");
+          navigate("/login-home");
         });
     } catch (response) {
       console.log(response);

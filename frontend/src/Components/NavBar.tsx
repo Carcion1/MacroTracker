@@ -5,7 +5,7 @@ import "../Styles/NavBar.css";
 
 const NavBar: React.FC = () => {
   const location = useLocation();
-  const isHidden = location.pathname === "/login";
+  const isHidden = ["/login", "/login-home"].includes(location.pathname);
 
   return (
     <nav className={`nav-bar ${isHidden ? "hidden" : ""}`}>
