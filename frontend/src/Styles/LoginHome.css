@@ -1,0 +1,35 @@
+.login-nav-bar {
+  width: 100%;
+  height: 50px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* ensures it stays above other content */
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.login-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3.5em;
+  padding: 0 40px;
+  margin: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.login-nav-links li {
+  text-decoration: none;
+  color: inherit;
+}
+
+.login-nav-links li:hover {
+  color: blue;
+}
