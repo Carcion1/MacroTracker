@@ -1,48 +1,120 @@
-.login-container {
-  width: 300px;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-  text-align: left;
-}
-
+/* Wrapper centers the form vertically and horizontally */
 .login-container-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+  background: #ffffff;
+  padding: 20px;
 }
 
+/* Login form container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+}
+
+/* Form header - where the caption is Login*/
 .login-header {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 5%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
 }
 
+/* Styles the input group rows - email, password*/
+.form-row {
+  display: flex;
+  flex-direction: column; /* sets the form rows in a column  */
+  margin-bottom: 20px;
+}
+
+/* Label styling - styling the labels email and password */
+.form-row label {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Input styling - styling the box. */
+.input-field {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/*Styles an input field when user clicks into it and starts typing */
+.input-field:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  outline: none;
+ transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-error-message {
+  background-color: #ffe0e0;
+  border: 1px solid #ff4d4d;
+  color: #cc0000;
+  padding: 0.75em 1em;
+  margin-bottom: 1.5em;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons container */
 .login-buttons {
   display: flex;
   justify-content: space-between;
-  border-radius: 4px;
+  gap: 12px;
+  margin-top: 30px;
 }
 
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2%;
-}
-
-.form-row h4 {
-  display: flex;
-  margin-right: 5%;
-  width: 30%;
-}
-
-.input-field {
+/* Shared button base */
+.back-button,
+.login-button {
   flex: 1;
-  padding: 0.5em;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Back button */
+.back-button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.back-button:hover {
+  background-color: #ccc;
+}
+
+/* Login button */
+.login-button {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #357abd;
 }

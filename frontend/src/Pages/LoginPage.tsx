@@ -7,10 +7,12 @@ const LoginPage: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+
 
   const handleLogin = async () => {
     if (!email || !password) {
-      alert("Please enter both email and password");
+      setLoginError("Please enter both email and password");
       return;
     }
 
@@ -18,18 +20,20 @@ const LoginPage: React.FC = () => {
       await fetch("https://localhost:7059/api/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", //Tells server that we are sending JSON data in request body
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // converts the object {email, password} into json string
+        body: JSON.stringify({ email, password }),
       })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             return response.json();
+          } else if (response.status === 401){
+          setLoginError("Invalid email or password");
           }
-          throw response; // mainly for error handling to display for debugging.
+          throw response;
         })
         .then((data) => {
-          console.log(data); // data just a variable.
+          console.log(data);
           navigate("/login-home");
         });
     } catch (response) {
@@ -47,38 +51,56 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="login-container-wrapper">
-      <div className="login-container">
+      <form
+        className="login-container"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleLogin();
+        }}
+      >
         <h2 className="login-header">Login</h2>
 
         <div className="form-row">
-          <h4>Email:</h4>
+          <label htmlFor="email">Email:</label>
           <input
+            id="email"
             type="email"
             className="input-field"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)} // E.TARGET is input element, value is current content
+            required
           />
         </div>
 
         <div className="form-row">
-          <h4>Password:</h4>
+          <label htmlFor="password">Password:</label>
           <input
+            id="password"
             type="password"
             className="input-field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
-
+{loginError && (
+  <div className="login-error-message">
+    {loginError}
+  </div>
+)}
         <div className="login-buttons">
-          <button className="back-button" onClick={handleBack}>
+          <button
+            type="button"
+            className="back-button"
+            onClick={handleBack}
+          >
             Back
           </button>
-          <button className="login-button" onClick={handleLogin}>
+          <button type="submit" className="login-button">
             Login
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
